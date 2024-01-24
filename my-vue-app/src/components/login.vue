@@ -65,7 +65,7 @@ const passwordReg = ref("");
 const getUser = async () => {
     await axios
       .get(
-        "https://shy-rose-armadillo-fez.cyclic.app/accounts"
+        "https://mock-data-5ynd.onrender.com/accounts"
       )
       .then((res) => {
         console.log('res', res)
@@ -90,7 +90,7 @@ const doLogin = () => {
   }
 }
 const editProducts = async () => {
-  await axios.put(`https://shy-rose-armadillo-fez.cyclic.app/accounts/1`,{
+  await axios.put(`https://mock-data-5ynd.onrender.com/accounts/1`,{
     id : 1,
     email: emailReg.value,
     password: passwordReg.value

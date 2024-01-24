@@ -81,20 +81,28 @@
                 <label class="mb-3">Category</label>
                 <div class="formgrid grid">
                     <div class="field-radiobutton col-6">
-                        <RadioButton id="category1" name="category" value="hotDrinks" v-model="product.category" />
-                        <label for="category1">hotDrinks</label>
+                        <RadioButton id="category1" name="category" value="Sıcak İçecekler" v-model="product.category" />
+                        <label for="category1">Sıcak İçecekler</label>
                     </div>
                     <div class="field-radiobutton col-6">
-                        <RadioButton id="category2" name="category" value="coldDrinks" v-model="product.category" />
-                        <label for="category2">coldDrinks</label>
+                        <RadioButton id="category2" name="category" value="Soğuk İçecekler" v-model="product.category" />
+                        <label for="category2">Soğuk İçecekler</label>
                     </div>
                     <div class="field-radiobutton col-6">
-                        <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
-                        <label for="category3">Electronics</label>
+                        <RadioButton id="category3" name="category" value="Atıştırmalıklar" v-model="product.category" />
+                        <label for="category3">Atıştırmalıklar</label>
                     </div>
                     <div class="field-radiobutton col-6">
-                        <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
-                        <label for="category4">Fitness</label>
+                        <RadioButton id="category4" name="category" value="Tatlılar" v-model="product.category" />
+                        <label for="category4">Tatlılar</label>
+                    </div>
+                    <div class="field-radiobutton col-6">
+                        <RadioButton id="category4" name="category" value="Nargile" v-model="product.category" />
+                        <label for="category4">Nargile</label>
+                    </div>
+                    <div class="field-radiobutton col-6">
+                        <RadioButton id="category4" name="category" value="Yemekler" v-model="product.category" />
+                        <label for="category4">Yemekler</label>
                     </div>
                 </div>
             </div>
@@ -151,7 +159,7 @@ onMounted(() => {
     const getCardDetails = async () => {
         await axios
             .get(
-                "https://shy-rose-armadillo-fez.cyclic.app/mealofday"
+                "https://mock-data-5ynd.onrender.com/mealofday"
             )
             .then((res) => {
                 console.log('res', res)
@@ -208,13 +216,13 @@ const saveProduct = async () => {
         "popular": true,
         "available": true
     }
-    await axios.post("https://shy-rose-armadillo-fez.cyclic.app/mealofday", json)
+    await axios.post("https://mock-data-5ynd.onrender.com/mealofday", json)
         .then(res => console.log('res', res)).catch(el => console.log('el', el))
     setTimeout(async () => {
         const getCardDetails = async () => {
             await axios
                 .get(
-                    "https://shy-rose-armadillo-fez.cyclic.app/mealofday"
+                    "https://mock-data-5ynd.onrender.com/mealofday"
                 )
                 .then((res) => {
                     console.log('res', res)
@@ -228,7 +236,7 @@ const saveProduct = async () => {
 const editProducts = async () => {
     console.log('prod', product.value);
     console.log('products', products.value)
-    await axios.put(`https://shy-rose-armadillo-fez.cyclic.app/mealofday/${product.value.id}`, product.value).then(res => {
+    await axios.put(`https://mock-data-5ynd.onrender.com/mealofday/${product.value.id}`, product.value).then(res => {
     }).catch((error) => console.log(error));
     products.value = products.value.map(el => {
         if (el.id == product.value.id) {
@@ -275,7 +283,7 @@ const confirmDeleteProduct = (prod) => {
     deleteProductDialog.value = true;
 };
 const deleteProduct = async () => {
-    await axios.delete(`https://shy-rose-armadillo-fez.cyclic.app/mealofday/${product.value.id}`)
+    await axios.delete(`https://mock-data-5ynd.onrender.com/mealofday/${product.value.id}`)
         .then(res => {
         }).catch((error) => console.log(error));
     products.value = products.value.filter(val => val.id !== product.value.id);

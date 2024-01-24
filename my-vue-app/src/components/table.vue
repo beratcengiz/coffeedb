@@ -160,7 +160,7 @@ onMounted(() => {
     const getCardDetails = async () => {
         await axios
             .get(
-                "https://shy-rose-armadillo-fez.cyclic.app/posts"
+                "https://mock-data-5ynd.onrender.com/posts"
             )
             .then((res) => {
                 console.log('res', res)
@@ -218,13 +218,13 @@ const saveProduct = async () => {
         "description":product.value.description,
         "available": true
     }
-    await axios.post("https://shy-rose-armadillo-fez.cyclic.app/posts", json)
+    await axios.post("https://mock-data-5ynd.onrender.com/posts", json)
         .then(res => console.log('res', res)).catch(el => console.log('el', el))
     setTimeout(async () => {
         const getCardDetails = async () => {
             await axios
                 .get(
-                    "https://shy-rose-armadillo-fez.cyclic.app/posts"
+                    "https://mock-data-5ynd.onrender.com/posts"
                 )
                 .then((res) => {
                     console.log('res', res)
@@ -238,7 +238,7 @@ const saveProduct = async () => {
 const editProducts = async () => {
     console.log('prod', product.value);
     console.log('products', products.value)
-    await axios.put(`https://shy-rose-armadillo-fez.cyclic.app/posts/${product.value.id}`, product.value).then(res => {
+    await axios.put(`https://mock-data-5ynd.onrender.com/posts/${product.value.id}`, product.value).then(res => {
     }).catch((error) => console.log(error));
     products.value = products.value.map(el => {
         if (el.id == product.value.id) {
@@ -286,7 +286,7 @@ const confirmDeleteProduct = (prod) => {
     deleteProductDialog.value = true;
 };
 const deleteProduct = async () => {
-    await axios.delete(`https://shy-rose-armadillo-fez.cyclic.app/posts/${product.value.id}`)
+    await axios.delete(`https://mock-data-5ynd.onrender.com/posts/${product.value.id}`)
         .then(res => {
         }).catch((error) => console.log(error));
     products.value = products.value.filter(val => val.id !== product.value.id);
