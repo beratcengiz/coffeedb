@@ -1,0 +1,3 @@
+[build]
+  command = "npm install -g vite && vite build"
+  publish = "dist"
